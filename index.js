@@ -1,6 +1,5 @@
 // create a XX by XX grid of square divs (default is 16 by 16)
 const sketchPad = document.querySelector(".sketch-pad");
-console.log(getComputedStyle(sketchPad));
 function makeGrid(gridNum) {
   for (let i = 0; i < gridNum; i++) {
     const outerDiv = document.createElement("div");
@@ -76,24 +75,23 @@ function colorPicker() {
   const color_picker = document.getElementById("color-picker");
   const color_picker_wrapper = document.getElementById("color-picker-wrapper");
   const innerDivArray = Array.from(document.querySelectorAll(".innerDiv"));
-  color_picker.onchange = function () {
+  color_picker.addEventListener("input", function () {
     color_picker_wrapper.style.backgroundColor = color_picker.value;
     innerDivArray.forEach((innerDiv) => {
       innerDiv.addEventListener("mouseover", (event) => {
         event.target.style.backgroundColor = color_picker.value;
       });
     });
-  };
-  color_picker_wrapper.style.backgroundColor = color_picker.value;
+  });
 }
 
 colorPicker();
 
 // display updated grid size value every time user drags the slider handle
-function displayGridValue() {
+function displayGridValue(num) {
   const slider = document.getElementById("grid-slider");
   const gridValue = document.getElementById("grid-value");
-  gridValue.textContent = slider.value;
+  gridValue.textContent = num;
   slider.oninput = function () {
     gridValue.textContent = slider.value;
     resetGridPixels();
@@ -105,7 +103,7 @@ function displayGridValue() {
   };
 }
 
-displayGridValue();
+displayGridValue(16);
 
 // reset the grid inside the sketch pad
 function resetGridPixels() {
