@@ -12,7 +12,6 @@
       href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap"
       rel="stylesheet"
     />
-
   </head>
   <body>
     <script src="index.js" async defer></script>
@@ -26,7 +25,15 @@
         </div>
       </div>
       <div class="grid-range">
-        <input type="range" min="1" max="64" value="16" class="slider" />
+        <input
+          type="range"
+          min="2"
+          max="64"
+          value="16"
+          class="slider"
+          id="grid-slider"
+        />
+        <div class="value-container">Value: <span id="grid-value"></span></div>
       </div>
     </nav>
     <div class="sketch-pad"></div>
