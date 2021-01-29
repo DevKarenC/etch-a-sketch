@@ -1,19 +1,26 @@
-// create a 16 by 16 grid of square divs
+// create a XX by XX grid of square divs (default is 16 by 16)
 const sketchPad = document.querySelector(".sketch-pad");
-function makeGrid() {
-  for (let i = 0; i < 16; i++) {
+console.log(getComputedStyle(sketchPad));
+function makeGrid(gridNum) {
+  for (let i = 0; i < gridNum; i++) {
     const outerDiv = document.createElement("div");
-    for (let j = 0; j < 16; j++) {
+    for (let j = 0; j < gridNum; j++) {
       const innerDiv = document.createElement("div");
       innerDiv.classList.add("innerDiv");
+      const px = `${(529 - gridNum - 1) / gridNum}px`;
+      innerDiv.style.width = `${px}`;
+      innerDiv.style.height = `${px}`;
+      innerDiv.style.borderRight = "1px solid black";
+      innerDiv.style.borderBottom = "1px solid black";
       outerDiv.appendChild(innerDiv);
     }
     sketchPad.appendChild(outerDiv);
     outerDiv.classList.add("outerDiv");
+    outerDiv.style.borderTop = "1px solid black";
   }
 }
 
-makeGrid();
+makeGrid(16);
 
 // add color effect to divs on hover
 function handleHover() {
@@ -27,8 +34,8 @@ function handleHover() {
 
 handleHover();
 
-// reset the grid
-function resetGrid() {
+// reset the grid color
+function resetGridColor() {
   const innerDivArray = Array.from(document.querySelectorAll(".innerDiv"));
   const resetButton = document.querySelector(".reset-button");
   resetButton.addEventListener("click", () => {
@@ -38,7 +45,7 @@ function resetGrid() {
   });
 }
 
-resetGrid();
+resetGridColor();
 
 // generate random color and assign to each div
 function assignRandomColor() {
@@ -81,3 +88,29 @@ function colorPicker() {
 }
 
 colorPicker();
+
+// display updated grid size value every time user drags the slider handle
+function displayGridValue() {
+  const slider = document.getElementById("grid-slider");
+  const gridValue = document.getElementById("grid-value");
+  gridValue.textContent = slider.value;
+  slider.oninput = function () {
+    gridValue.textContent = slider.value;
+    resetGridPixels();
+    makeGrid(Number(gridValue.textContent));
+    handleHover();
+    resetGridColor();
+    assignRandomColor();
+    colorPicker();
+  };
+}
+
+displayGridValue();
+
+// reset the grid inside the sketch pad
+function resetGridPixels() {
+  const innerDivArray = Array.from(document.querySelectorAll(".innerDiv"));
+  const outerDivArray = Array.from(document.querySelectorAll(".outerDiv"));
+  const sketchPad = document.querySelector(".sketch-pad");
+  sketchPad.innerHTML = "";
+}
