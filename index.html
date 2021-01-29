@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Etch-A-Sketch</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <script src="index.js" async defer></script>
+    <nav>
+      <div class="title">Etch A Sketch</div>
+      <div class="buttons">
+        <button class="reset-button">Reset</button>
+        <button class="random-color-button">Random Colors</button>
+        <input type="color" id="color-picker" name="color-picker" />
+      </div>
+      <div class="grid-range">
+        <input type="range" min="1" max="64" value="16" class="slider" />
+      </div>
+    </nav>
+    <div class="sketch-pad"></div>
+  </body>
+</html>
