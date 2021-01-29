@@ -20,7 +20,7 @@ function handleHover() {
   const innerDivArray = Array.from(document.querySelectorAll(".innerDiv"));
   innerDivArray.forEach((innerDiv) => {
     innerDiv.addEventListener("mouseover", (event) => {
-      event.target.style.backgroundColor = "turquoise";
+      event.target.style.backgroundColor = "#000000";
     });
   });
 }
@@ -63,3 +63,21 @@ function assignRandomColor() {
 }
 
 assignRandomColor();
+
+// assign user selected color as div color and modify styling of native color picker
+function colorPicker() {
+  const color_picker = document.getElementById("color-picker");
+  const color_picker_wrapper = document.getElementById("color-picker-wrapper");
+  const innerDivArray = Array.from(document.querySelectorAll(".innerDiv"));
+  color_picker.onchange = function () {
+    color_picker_wrapper.style.backgroundColor = color_picker.value;
+    innerDivArray.forEach((innerDiv) => {
+      innerDiv.addEventListener("mouseover", (event) => {
+        event.target.style.backgroundColor = color_picker.value;
+      });
+    });
+  };
+  color_picker_wrapper.style.backgroundColor = color_picker.value;
+}
+
+colorPicker();
