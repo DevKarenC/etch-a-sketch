@@ -15,28 +15,39 @@
   </head>
   <body>
     <script src="index.js" async defer></script>
-    <nav>
-      <div class="title">Etch A Sketch</div>
-      <div class="buttons">
+    <div class="title">Etch A Sketch</div>
+    <div class="content">
+      <div class="options">
         <button class="reset-button">Reset</button>
         <button class="random-color-button">Random Colors</button>
         <div id="color-picker-wrapper">
           <input type="color" id="color-picker" name="color-picker" />
         </div>
+        <div class="grid-range">
+          <input
+            autocomplete="off"
+            type="range"
+            min="2"
+            max="64"
+            value="16"
+            class="slider"
+            id="grid-slider"
+          />
+          <div class="value-container">
+            Grid Size: <span id="grid-value"></span>
+          </div>
+        </div>
+        <div class="github-wrapper">
+          <a href="https://github.com/DevKarenC/etch-a-sketch" target="_blank">
+            <img
+              src="images/github-image-64px.png"
+              alt="github icon"
+              class="github-icon"
+            />
+          </a>
+        </div>
       </div>
-      <div class="grid-range">
-        <input
-          autocomplete="off"
-          type="range"
-          min="2"
-          max="64"
-          value="16"
-          class="slider"
-          id="grid-slider"
-        />
-        <div class="value-container">Value: <span id="grid-value"></span></div>
-      </div>
-    </nav>
-    <div class="sketch-pad"></div>
+      <div class="sketch-pad"></div>
+    </div>
   </body>
 </html>

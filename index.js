@@ -26,7 +26,7 @@ function handleHover() {
   const innerDivArray = Array.from(document.querySelectorAll(".innerDiv"));
   innerDivArray.forEach((innerDiv) => {
     innerDiv.addEventListener("mouseover", (event) => {
-      event.target.style.backgroundColor = "#000000";
+      event.target.style.backgroundColor = "#91ff91";
     });
   });
 }
