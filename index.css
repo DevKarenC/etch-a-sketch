@@ -1,22 +1,25 @@
 html,
 body {
-  height: 100%;
   font-family: "Francois One", sans-serif;
-}
-
-nav {
-  /* height: 25%; */
+  background-color: #1d3e81;
 }
 
 .title {
   text-align: center;
-  letter-spacing: 0.25em;
-  font-size: 3.5rem;
-  line-height: 2;
+  letter-spacing: 3px;
+  font-size: 4rem;
+  padding: 2rem 0;
+  color: white;
 }
 
-.buttons {
+.content {
   display: flex;
+  justify-content: space-evenly;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -37,9 +40,9 @@ nav {
   -webkit-box-shadow: 0px 6px 0px #d35400;
   -moz-box-shadow: 0px 6px 0px #d35400;
   box-shadow: 0px 6px 0px #d35400;
-  font-size: 1.25rem;
-  margin-right: 1rem;
+  font-size: 1.5rem;
   font-family: "Francois One", sans-serif;
+  margin-bottom: 2rem;
 }
 
 .reset-button:active,
@@ -60,62 +63,75 @@ input[type="color"] {
 }
 
 #color-picker-wrapper {
-  width: 32px;
-  height: 32px;
-  background-color: #000000;
+  width: 50px;
+  height: 50px;
+  background-color: #91ff91;
+  border: 1px solid white;
+  margin: 0 auto;
+  border-radius: 25%;
 }
 
 .grid-range {
   text-align: center;
   padding: 1rem 0;
   width: 100%;
+  margin-top: 1rem;
 }
 
 .slider {
   -webkit-appearance: none;
   appearance: none;
-  width: 30%;
-  height: 15px;
+  width: 100%;
+  height: 10px;
   border-radius: 15px;
-  background: #d3d3d3; /* Grey background */
+  background: white;
   outline: none;
-  opacity: 0.7;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
-}
-
-.slider:hover {
-  opacity: 1;
 }
 
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
+  -webkit-appearance: none;
   appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: #4caf50; /* Green background or add an image */
-  cursor: pointer; /* Cursor on hover */
+  background: #e67e22; /* Green background or add an image */
+  cursor: pointer;
+  border: 1px solid #e67e22;
 }
 
 .slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: #4caf50; /* Green background or add an image */
-  cursor: pointer; /* Cursor on hover */
+  background: #e67e22;
+  cursor: pointer;
+  border: 1px solid #e67e22;
 }
 
 .value-container {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 10px;
+}
+
+.github-wrapper {
+  margin: 0.5rem auto;
+}
+
+.github-icon {
+  width: 44px;
+  height: auto;
 }
 
 .sketch-pad {
   display: flex;
   justify-content: center;
-  margin: auto;
   width: 529px;
   height: 529px;
+  background-color: white;
+  border: 20px solid #ff973d;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px white;
 }
 
 /* .innerDiv {
